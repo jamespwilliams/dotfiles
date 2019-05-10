@@ -1,3 +1,5 @@
+#!/bin/bash
+
 rm -rf .myconf
 
 git clone --separate-git-dir=$HOME/.myconf https://github.com/jamespwilliams/dotfiles.git $HOME/myconf-tmp
@@ -11,7 +13,7 @@ source $HOME/.bash_profile
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
-if [[ "$OSTYPE" == "darwin"* ]] 
+if [[ "$OSTYPE" == "darwin"* ]]; then
     curl -OO https://raw.githubusercontent.com/jeffkreeftmeijer/wwdc16.terminal/master/wwdc16-{light,dark}.terminal
     open wwdc16-*.terminal
 fi
