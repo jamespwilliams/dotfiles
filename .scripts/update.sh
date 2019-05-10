@@ -11,5 +11,8 @@ source $HOME/.bash_profile
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
-git clone git://github.com/altercation/vim-colors-solarized.git
-mv vim-colors-solarized ~/.vim/bundle/
+
+if [[ "$OSTYPE" == "darwin"* ]]; 
+    curl -OO https://raw.githubusercontent.com/jeffkreeftmeijer/wwdc16.terminal/master/wwdc16-{light,dark}.terminal
+    open wwdc16-*.terminal
+fi
