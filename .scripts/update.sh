@@ -15,6 +15,8 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     curl -OO https://raw.githubusercontent.com/jeffkreeftmeijer/wwdc16.terminal/master/wwdc16-{light,dark}.terminal
+    curl -OO https://raw.githubusercontent.com/jeffkreeftmeijer/appsignal.terminal/master/appsignal-{light,dark}.itermcolors
+    open appsignal-*.itermcolors
     open wwdc16-*.terminal
 fi
 
