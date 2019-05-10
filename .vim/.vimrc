@@ -28,6 +28,12 @@ set ignorecase
 set expandtab ts=4 sw=4 ai
 
 colo delek
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+    colorscheme dim 
+  endif
+endif
 
 inoremap <Up> <Nop>
 inoremap <Down> <Nop>
