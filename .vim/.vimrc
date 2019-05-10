@@ -7,7 +7,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'sonph/onehalf', {'rtp': 'vim/'}
 
 call vundle#end()
 syntax enable
@@ -28,12 +27,7 @@ set ignorecase
 
 set expandtab ts=4 sw=4 ai
 
-"let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-"let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-"set termguicolors
-"set t_Co=256
-colorscheme onehalflight
-
+colo delek
 
 inoremap <Up> <Nop>
 inoremap <Down> <Nop>
