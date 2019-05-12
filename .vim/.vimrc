@@ -4,23 +4,25 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
-"call vundle#begin()
+call vundle#begin()
 "
 "Plugin 'VundleVim/Vundle.vim'
 "Plugin 'micha/vim-colors-solarized'
 "Plugin 'ayu-theme/ayu-vim'
-"
-"call vundle#end()
+Plugin 'vim-airline/vim-airline'
+
+call vundle#end()
 
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
+set showcmd
 set showmode
 set backup
 set backupdir=/private/tmp
 set dir=/private/tmp
 
-set number
+set relativenumber
 
 set hlsearch
 set incsearch
