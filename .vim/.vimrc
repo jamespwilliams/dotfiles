@@ -4,12 +4,13 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-
-call vundle#end()
-syntax enable
+"call vundle#begin()
+"
+"Plugin 'VundleVim/Vundle.vim'
+"Plugin 'micha/vim-colors-solarized'
+"Plugin 'ayu-theme/ayu-vim'
+"
+"call vundle#end()
 
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
@@ -27,17 +28,8 @@ set ignorecase
 
 set expandtab ts=4 sw=4 ai
 
-if has("unix")
-  let s:uname = system("uname")
-  if s:uname == "Darwin\n"
-    colorscheme dim 
-  else
-    colo delek
-  endif
-else
-    colo delek
-endif
-
+syntax on
+colo delek
 inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
