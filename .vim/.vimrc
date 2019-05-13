@@ -18,9 +18,6 @@ nmap <CR> o<Esc>
 
 set showcmd
 set showmode
-set backup
-set backupdir=/private/tmp
-set dir=/private/tmp
 
 set relativenumber
 
