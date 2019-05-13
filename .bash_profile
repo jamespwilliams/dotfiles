@@ -8,7 +8,6 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 alias shell1='ssh jw1317@shell1.doc.ic.ac.uk'
 
-export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # less/man colors
@@ -23,4 +22,6 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 
 export GIT_EDITOR=vim
 export VISUAL=vim
-export EDITOR="$VISUAL"
+
+[[ -s "/usr/local/etc/grc.bashrc" ]] && source /usr/local/etc/grc.bashrc 
+
