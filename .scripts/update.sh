@@ -10,8 +10,7 @@ rm -r ~/myconf-tmp/
 
 source $HOME/.bash_profile 
 
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     mkdir -p $HOME/.myconf/terminal-themes/
