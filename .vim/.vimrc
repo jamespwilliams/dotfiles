@@ -1,5 +1,4 @@
 set nocompatible              " be iMproved, required
-
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -7,8 +6,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
-Plugin 'vim-airline/vim-airline'
+Plugin 'itchyny/lightline.vim'
 Plugin 'danielwe/base16-vim'
+Plugin 'daviesjamie/vim-base16-lightline'
 
 call vundle#end()
 
@@ -32,14 +32,21 @@ set ignorecase
 set expandtab ts=4 sw=4 ai
 
 syntax on
+
+" Things to stop me being lazy:
 inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
-
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+
+" Lightline:
+set laststatus=2
+let g:lightline = {
+      \ 'colorscheme': 'base16',
+      \ }
 
 filetype plugin indent on
