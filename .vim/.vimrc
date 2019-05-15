@@ -12,30 +12,27 @@ Plugin 'daviesjamie/vim-base16-lightline'
 
 call vundle#end()
 
+set backspace=indent,eol,start
+
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256  
   source ~/.vimrc_background
 endif
-
 
 if !has("gui_running")
     set t_Co=256
     set term=screen-256color
 endif
 
-
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
 set showcmd
 set showmode
-
 set relativenumber
-
 set hlsearch
 set incsearch
 set ignorecase
-
 set expandtab ts=4 sw=4 ai
 
 syntax on
@@ -49,6 +46,7 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+
 
 " Lightline:
 set laststatus=2
