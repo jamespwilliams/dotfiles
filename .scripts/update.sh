@@ -11,6 +11,7 @@ rm -r ~/myconf-tmp/
 source $HOME/.bash_profile 
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/chriskempson/base16-shell.git ~/.myconf/base16-shell
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     mkdir -p $HOME/.myconf/terminal-themes/

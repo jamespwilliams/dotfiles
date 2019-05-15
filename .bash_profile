@@ -22,6 +22,7 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 
 export GIT_EDITOR=vim
 export VISUAL=vim
-
+BASE16_SHELL=$HOME/.myconf/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 [[ -s "/usr/local/etc/grc.bashrc" ]] && source /usr/local/etc/grc.bashrc 
 
