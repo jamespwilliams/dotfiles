@@ -17,6 +17,13 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
+
+if !has("gui_running")
+    set t_Co=256
+    set term=screen-256color
+endif
+
+
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
