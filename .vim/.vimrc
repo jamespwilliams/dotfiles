@@ -5,10 +5,7 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
-"
-"Plugin 'VundleVim/Vundle.vim'
-"Plugin 'micha/vim-colors-solarized'
-"Plugin 'ayu-theme/ayu-vim'
+
 Plugin 'vim-airline/vim-airline'
 
 call vundle#end()
