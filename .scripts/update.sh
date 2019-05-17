@@ -1,5 +1,4 @@
 #!/bin/bash
-
 rm -rf .myconf
 
 git clone --separate-git-dir=$HOME/.myconf https://github.com/jamespwilliams/dotfiles.git $HOME/myconf-tmp
@@ -7,8 +6,6 @@ rm -r ~/myconf-tmp/
 
 /usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME reset --hard HEAD
 /usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME config status.showUntrackedFiles no
-
-source $HOME/.bash_profile 
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone https://github.com/chriskempson/base16-shell.git ~/.myconf/base16-shell
@@ -26,3 +23,4 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     cd $HOME
 fi
 
+source $HOME/.bash_profile 
