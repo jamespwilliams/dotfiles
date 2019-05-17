@@ -75,6 +75,7 @@ nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 nnoremap <Leader>n :bnext<CR>
 nnoremap <Leader>p :bprevious<CR>
+nnoremap <Leader>d :bd
 
 " Nerdtree
 map <C-n> :NERDTreeToggle<CR>
