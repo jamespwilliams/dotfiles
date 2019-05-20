@@ -28,6 +28,9 @@ BASE16_SHELL=$HOME/.myconf/base16-shell/
 # Add grc aliases (to enable syntax highlighting for dig, traceroute and many more)
 [[ -s "/usr/local/etc/grc.bashrc" ]] && source /usr/local/etc/grc.bashrc 
 
+if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    setxkbmap -option caps:swapescape    
+fi
 alias shell1='ssh jw1317@shell1.doc.ic.ac.uk'
 function uni_git() {
     git config user.name "James Williams"
