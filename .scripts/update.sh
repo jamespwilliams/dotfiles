@@ -10,6 +10,10 @@ rm -r ~/myconf-tmp/
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone https://github.com/chriskempson/base16-shell.git ~/.myconf/base16-shell
 
+mkdir .myconf/fonts
+curl http://www.gringod.com/wp-upload/software/Fonts/Monaco_Linux.ttf -o .myconf/fonts/monaco_linux.ttf
+
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
     mkdir -p $HOME/.myconf/terminal-themes/
     cd $HOME/.myconf/terminal-themes 
