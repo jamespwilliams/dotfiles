@@ -76,8 +76,11 @@ nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 nnoremap <Leader>n :bnext<CR>
 nnoremap <Leader>p :bprevious<CR>
 nnoremap <Leader>d :bd
+nnoremap <Leader>c :!setxkbmap -option caps:escape 
 
 " Nerdtree
 map <C-n> :NERDTreeToggle<CR>
+
+set timeoutlen=1000 ttimeoutlen=0
 
 filetype plugin indent on

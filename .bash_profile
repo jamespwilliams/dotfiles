@@ -29,7 +29,7 @@ BASE16_SHELL=$HOME/.myconf/base16-shell/
 [[ -s "/usr/local/etc/grc.bashrc" ]] && source /usr/local/etc/grc.bashrc 
 
 if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    setxkbmap -option caps:swapescape    
+    setxkbmap -option caps:escape    
 fi
 alias shell1='ssh jw1317@shell1.doc.ic.ac.uk'
 function uni_git() {
