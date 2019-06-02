@@ -40,6 +40,13 @@ set hidden
 set ignorecase
 set expandtab ts=4 sw=4 ai
 
+set scrolloff=5
+
+set foldmethod=indent   
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+
 syntax on
 
 " Things to stop me being lazy:
@@ -64,6 +71,28 @@ set showtabline=2
 let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
+
+" Goyo:
+function! s:goyo_enter()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status off
+  endif
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+endfunction
+
+function! s:goyo_leave()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status on
+  endif
+  set showmode
+  set showcmd
+  set scrolloff=5
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 nmap <Leader>1 <Plug>lightline#bufferline#go(1)
 nmap <Leader>2 <Plug>lightline#bufferline#go(2)
