@@ -57,6 +57,7 @@ set laststatus=2
 let g:lightline = {
       \ 'colorscheme': 'base16',
       \ }
+let g:lightline#bufferline#show_number  = 2
 set showtabline=2
 
 let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
