@@ -11,6 +11,7 @@ Plugin 'danielwe/base16-vim'
 Plugin 'daviesjamie/vim-base16-lightline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mengelbrecht/lightline-bufferline'
+Plugin 'junegunn/goyo.vim'
 
 call vundle#end()
 
