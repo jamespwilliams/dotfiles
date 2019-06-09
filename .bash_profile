@@ -1,5 +1,6 @@
 # Add alias to git for managing dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
+alias git='git status'
 
 # Prompt setup
 export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
@@ -31,7 +32,9 @@ BASE16_SHELL=$HOME/.myconf/base16-shell/
 if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     setxkbmap -option caps:escape    
 fi
+
 alias shell1='ssh jw1317@shell1.doc.ic.ac.uk'
+
 function uni_git() {
     git config user.name "James Williams"
     git config user.email "james.williams17@imperial.ac.uk"
