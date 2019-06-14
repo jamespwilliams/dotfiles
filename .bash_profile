@@ -39,3 +39,7 @@ function uni_git() {
     git config user.name "James Williams"
     git config user.email "james.williams17@imperial.ac.uk"
 }
+
+if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
+fi
