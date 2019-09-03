@@ -44,3 +44,7 @@ function uni_git() {
 if [ -f ~/.git-completion.bash ]; then
     . ~/.git-completion.bash
 fi
+
+if [ -f ~/.bash_local ]; then
+    . ~/.bash_local
+fi
