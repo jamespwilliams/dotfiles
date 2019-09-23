@@ -1,6 +1,10 @@
 #!/bin/bash
-# Add alias to git for managing dotfiles
-alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
+
+function uni_git() {
+    git config user.name "James Williams"
+    git config user.email "james.williams17@imperial.ac.uk"
+}
+
 alias gs='git status'
 
 # Prompt setup
@@ -8,6 +12,8 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 
 # Force tmux to use 256 colors
 alias tmux='tmux -2'
+
+alias shell1='ssh jw1317@shell1.doc.ic.ac.uk'
 
 # less/man colors
 export LESS=-R
@@ -24,7 +30,7 @@ export GIT_EDITOR=vim
 export VISUAL=vim
 
 # Add support for base16 terminal commands
-BASE16_SHELL=$HOME/.myconf/base16-shell/
+BASE16_SHELL=$HOME/dotfiles/base16/base16-shell
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 [ -z "$BASE16_THEME" ] && base16_onedark
 # Add grc aliases (to enable syntax highlighting for dig, traceroute and many more)
@@ -34,12 +40,6 @@ if [[ "$(uname -s)" = *"Linux"* ]]; then
     setxkbmap -option caps:escape    
 fi
 
-alias shell1='ssh jw1317@shell1.doc.ic.ac.uk'
-
-function uni_git() {
-    git config user.name "James Williams"
-    git config user.email "james.williams17@imperial.ac.uk"
-}
 
 if [ -f ~/.git-completion.bash ]; then
     . ~/.git-completion.bash
