@@ -9,7 +9,7 @@ GNU Stow should be used to manage the symlinks for the files.
 One liner:
 
 ```sh
-git clone --recurse-submodules https://github.com/jamespwilliams/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && stow {base16,bash,readline,tmux,vim}
+git clone --recurse-submodules https://github.com/jamespwilliams/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && stow {bash,readline,tmux,vim}
 ```
 
 Longer:
@@ -17,7 +17,7 @@ Longer:
 ```sh
 $ git clone --recurse-submodules https://github.com/jamespwilliams/dotfiles.git ~/.dotfiles
 $ cd ~/.dotfiles
-$ stow {base16,bash,readline,tmux,vim}
+$ stow {bash,readline,tmux,vim}
 
 # Example: uninstall vim configuration
 $ stow -D vim
