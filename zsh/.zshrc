@@ -27,7 +27,7 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-# Change cursor shape for different vi modes.
+# MARK: Begin code to change cursor shape for different vi modes.
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
      [[ $1 = 'block' ]]; then
@@ -40,13 +40,21 @@ function zle-keymap-select {
   fi
 }
 zle -N zle-keymap-select
-zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
+
+# We start in insert mode, so set beam cursor initially:
+function zle-line-init {
+    echo -ne '\e[5 q'
 }
 zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+# Go back to the block cursor when done editing command:
+function zle-line-finish {
+    echo -ne '\e[1 q'
+}
+zle -N zle-line-finish
+
+
+# MARK: end cursor changing code.
 
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
