@@ -6,7 +6,15 @@ GNU Stow should be used to manage the symlinks for the files.
 
 ### Installation
 
+One liner:
+
+```sh
+git clone --recurse-submodules https://github.com/jamespwilliams/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && stow {base16,bash,readline,tmux,vim}
 ```
+
+Longer:
+
+```sh
 $ git clone --recurse-submodules https://github.com/jamespwilliams/dotfiles.git ~/.dotfiles
 $ cd ~/.dotfiles
 $ stow {base16,bash,readline,tmux,vim}
