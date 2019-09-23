@@ -1,18 +1,22 @@
 # dotfiles
 
-Install by running:
+This repo contains configuration files which allow me to quickly configure a machine to my liking. Currently, I use `tmux` and `vim` a lot, which is reflected here. I've tried to keep my dotfiles (somewhat) minimal, and as easy to install as possible. I do work on both Mac and Linux, so these dotfiles should work on both.
+
+GNU Stow should be used to manage the symlinks for the files.
+
+### Installation
 
 ```
-curl https://raw.githubusercontent.com/jamespwilliams/dotfiles/master/.scripts/update.sh | bash
+$ git clone --recurse-submodules https://github.com/jamespwilliams/dotfiles.git ~/.dotfiles
+$ cd ~/.dotfiles
+$ stow {base16,bash,readline,tmux,vim}
+
+# Example: uninstall vim configuration
+$ stow -D vim
+
+# Example: reinstall vim configuration
+$ stow -R vim
 ```
-
-### Details
-
-This repo contains configuration for some of the tools I use. Currently, I use `tmux` and `vim` a lot, which is reflected here. I've tried to keep my dotfiles (a) relatively minimal, and (b) as easy to install as possible. To that end, it's possible to install these with one command, which is useful if I'm working on many remote machines. 
-
-The `update.sh` clones this bare git repo into the home folder, and does some installation of other packages I find useful. It then sets up an alias for running `git` on this repo as `config`, so configuration can be updated by running `config add ...`, `config commit -m "..."`, `config push` etc.
-
-Machine-specific configuration is to be placed in `*.local` files, to keep the config in this repo machine-independent.
 
 ### Links
 
