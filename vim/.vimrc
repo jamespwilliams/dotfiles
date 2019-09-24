@@ -94,7 +94,9 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-let &t_SI = "\e[6 q"
+" Set insert mode to have an underline cursor:
+let &t_SI = "\e[3 q"
+" Set normal mode to have a block cursor:
 let &t_EI = "\e[2 q"
 
 " optional reset cursor on start:

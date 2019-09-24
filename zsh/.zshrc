@@ -36,14 +36,14 @@ function zle-keymap-select {
        [[ ${KEYMAP} == viins ]] ||
        [[ ${KEYMAP} = '' ]] ||
        [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
+    echo -ne '\e[3 q'
   fi
 }
 zle -N zle-keymap-select
 
 # We start in insert mode, so set beam cursor initially:
 function zle-line-init {
-    echo -ne '\e[5 q'
+    echo -ne '\e[3 q'
 }
 zle -N zle-line-init
 
