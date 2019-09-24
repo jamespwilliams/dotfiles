@@ -2,7 +2,9 @@
 
 # Enable colors and change prompt:
 autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+PS1_INSERT="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+PS1_NORMAL="%B%{$fg[cyan]%}[%n@%M %~]%{$reset_color%}$%b "
+PS1="$PS1_INSERT"
 
 # History in cache directory:
 HISTSIZE=10000
@@ -27,34 +29,21 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-# MARK: Begin code to change cursor shape for different vi modes.
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[3 q'
-  fi
+# MARK: Begin code to add prompt section showing Vim mode:
+function zle-line-init zle-keymap-select {
+    if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
+        PS1="$PS1_NORMAL"
+    elif [[ ${KEYMAP} == main ]] ||
+         [[ ${KEYMAP} == viins ]] ||
+         [[ ${KEYMAP} = '' ]] ||
+         [[ $1 = 'beam' ]]; then
+        PS1="$PS1_INSERT"
+    fi
+
+    zle reset-prompt
 }
 zle -N zle-keymap-select
-
-# We start in insert mode, so set beam cursor initially:
-function zle-line-init {
-    echo -ne '\e[3 q'
-}
 zle -N zle-line-init
-
-# Go back to the block cursor when done editing command:
-function zle-line-finish {
-    echo -ne '\e[1 q'
-}
-zle -N zle-line-finish
-
-
-# MARK: end cursor changing code.
 
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
