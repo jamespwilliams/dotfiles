@@ -12,6 +12,7 @@ Plugin 'daviesjamie/vim-base16-lightline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mengelbrecht/lightline-bufferline'
 Plugin 'junegunn/goyo.vim'
+Plugin 'neovimhaskell/haskell-vim'
 
 call vundle#end()
 
