@@ -12,6 +12,7 @@ Plugin 'daviesjamie/vim-base16-lightline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mengelbrecht/lightline-bufferline'
 Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
 Plugin 'neovimhaskell/haskell-vim'
 
 call vundle#end()
@@ -78,7 +79,7 @@ function! s:goyo_enter()
   if executable('tmux') && strlen($TMUX)
     silent !tmux set status off
   endif
-  set noshowmode
+  "set noshowmode
   set noshowcmd
   set scrolloff=999
 endfunction
@@ -87,13 +88,19 @@ function! s:goyo_leave()
   if executable('tmux') && strlen($TMUX)
     silent !tmux set status on
   endif
-  set showmode
+  "set showmode
   set showcmd
   set scrolloff=5
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+autocmd FileType haskell setlocal expandtab ts=2 sw=2 ai
+let g:haskell_indent_before_where = 0
+let g:haskell_indent_where = 2
+let g:haskell_indent_let = 2
+let g:haskell_indent_if = 0
 
 au BufWritePost *.go !gofmt -w %
 
