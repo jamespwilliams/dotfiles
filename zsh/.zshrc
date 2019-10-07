@@ -63,7 +63,7 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 # Add support for base16 terminal commands
-BASE16_SHELL=$HOME/.dotfiles/base16/base16-shell
+BASE16_SHELL=$HOME/.dotfiles/.include/base16/base16-shell
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 [ -z "$BASE16_THEME" ] && base16_onedark
 # Add grc aliases (to enable syntax highlighting for dig, traceroute and many more)
@@ -83,11 +83,16 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+
+# .zsh_local should set ZSH_PLUGIN_PREFIX, so that we can know where to read
+# zsh-syntax-highlighting and other plugins from.
 [ -f "$HOME/.zsh_local" ] && source "$HOME/.zsh_local"
 
+ZSH_PLUGIN_PREFIX=/usr/local/share
+
 # Load zsh-syntax-highlighting; should be last.
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source $ZSH_PLUGIN_PREFIX/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 ZSH_HIGHLIGHT_STYLES[unknown-token]='none'
 
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
+source $ZSH_PLUGIN_PREFIX/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 bindkey '^N' autosuggest-accept

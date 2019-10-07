@@ -30,7 +30,7 @@ export GIT_EDITOR=vim
 export VISUAL=vim
 
 # Add support for base16 terminal commands
-BASE16_SHELL=$HOME/.dotfiles/base16/base16-shell
+BASE16_SHELL=$HOME/.dotfiles/.include/base16/base16-shell
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 [ -z "$BASE16_THEME" ] && base16_onedark
 # Add grc aliases (to enable syntax highlighting for dig, traceroute and many more)
