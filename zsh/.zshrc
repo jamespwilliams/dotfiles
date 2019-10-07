@@ -1,5 +1,9 @@
 # Adapted from https://gist.githubusercontent.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52
 
+source $HOME/.dotfiles/.include/antigen/antigen.zsh
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+
 # Enable colors and change prompt:
 autoload -U colors && colors
 PS1_INSERT="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
@@ -83,16 +87,11 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
-
-# .zsh_local should set ZSH_PLUGIN_PREFIX, so that we can know where to read
-# zsh-syntax-highlighting and other plugins from.
 [ -f "$HOME/.zsh_local" ] && source "$HOME/.zsh_local"
 
-ZSH_PLUGIN_PREFIX=/usr/local/share
+# Install antigen plugins:
+antigen apply
 
-# Load zsh-syntax-highlighting; should be last.
-source $ZSH_PLUGIN_PREFIX/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+# Set up config for the plugins just installed:
 ZSH_HIGHLIGHT_STYLES[unknown-token]='none'
-
-source $ZSH_PLUGIN_PREFIX/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 bindkey '^N' autosuggest-accept
