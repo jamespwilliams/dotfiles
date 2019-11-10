@@ -15,6 +15,7 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 
@@ -103,7 +104,7 @@ let g:haskell_indent_where = 2
 let g:haskell_indent_let = 2
 let g:haskell_indent_if = 0
 
-au BufWritePost *.go !gofmt -w %
+let g:go_version_warning = 0
 
 nmap <Leader>1 <Plug>lightline#bufferline#go(1)
 nmap <Leader>2 <Plug>lightline#bufferline#go(2)
@@ -122,6 +123,7 @@ nnoremap <Leader>c :!setxkbmap -option caps:escape
 
 " Nerdtree
 map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 set timeoutlen=1000 ttimeoutlen=0
 
