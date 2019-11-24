@@ -14,6 +14,7 @@ Plugin 'mengelbrecht/lightline-bufferline'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'neovimhaskell/haskell-vim'
+Plugin 'lervag/vimtex'
 
 call vundle#end()
 
