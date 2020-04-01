@@ -95,3 +95,6 @@ antigen apply
 # Set up config for the plugins just installed:
 ZSH_HIGHLIGHT_STYLES[unknown-token]='none'
 bindkey '^N' autosuggest-accept
+
+export PATH="$HOME/.poetry/bin:$PATH"
+eval "$(pyenv init -)"

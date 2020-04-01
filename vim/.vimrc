@@ -17,6 +17,11 @@ Plugin 'neovimhaskell/haskell-vim'
 Plugin 'lervag/vimtex'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'fatih/vim-go'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'digitaltoad/vim-pug'
+Plugin 'Aluriak/ASP.vim'
+Plugin 'jceb/vim-orgmode'
+Plugin 'tpope/vim-speeddating'
 
 call vundle#end()
 
@@ -32,7 +37,9 @@ if !has("gui_running")
     set term=screen-256color
 endif
 
-let mapleader = ","
+let maplocalleader=' '
+let mapleader=' '
+
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
@@ -107,6 +114,8 @@ let g:haskell_indent_if = 0
 
 let g:go_version_warning = 0
 
+let g:vimtex_quickfix_open_on_warning = 0
+
 nmap <Leader>1 <Plug>lightline#bufferline#go(1)
 nmap <Leader>2 <Plug>lightline#bufferline#go(2)
 nmap <Leader>3 <Plug>lightline#bufferline#go(3)
@@ -120,7 +129,7 @@ nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 nnoremap <Leader>n :bnext<CR>
 nnoremap <Leader>p :bprevious<CR>
 nnoremap <Leader>d :bd
-nnoremap <Leader>c :!setxkbmap -option caps:escape 
+" nnoremap <Leader>c :!setxkbmap -option caps:escape 
 
 " Nerdtree
 map <C-n> :NERDTreeToggle<CR>

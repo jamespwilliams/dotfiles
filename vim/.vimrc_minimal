@@ -1,0 +1,84 @@
+set nocompatible
+
+" For netrw (technically a plugin, but comes preinstalled
+" with Vim):
+filetype plugin on
+syntax enable
+
+" Set up backspacing to mirror the usual backspace in IDEs:
+set backspace=indent,eol,start
+
+" Expand tabs into spaces, and auto-indent:
+set expandtab ts=4 sw=4 ai
+
+let maplocalleader=' '
+let mapleader=' '
+
+" Show commands as they are being typed, and show current mode:
+set showcmd
+set showmode
+
+" Use relative file numbering:
+set relativenumber
+
+" Highlight searches incrementally:
+set hlsearch
+set incsearch
+
+" If no capitals are in search query, treat the query as case 
+" insensitive. If capitals are present, treat the query as case
+" sensitive:
+set smartcase
+set ignorecase
+
+" Don't redraw in the middle of macro execution (makes things
+" faster):
+set lazyredraw
+
+" Allow edited buffers to be hidden rather than forcing
+" them to be saved or abandoned:
+set hidden
+
+" Start scrolling when cursor is 5 lines before the end of the file.
+set scrolloff=5
+
+" turn hybrid line numbers on
+set number relativenumber
+set nu rnu
+
+" Display the statusbar at the bottom of the screen:
+set laststatus=2
+set ruler
+
+" Don't offer completions from included files in autocomplete:
+set complete-=i
+
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+
+" Display all matching files when we tab complete
+set wildmenu
+
+set autoindent
+
+set textwidth=120
+set colorcolumn=120
+
+" Tweaks for browsing with netrw
+let g:netrw_altv=1          " open splits to the right
+let g:netrw_liststyle=3     " tree view
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+
+" Remappings to assist buffer navigation:
+nnoremap <Right> :bn<CR>
+nnoremap <Left> :bp<CR>
+nnoremap <Up> :ls<CR>:b
+nnoremap <Leader>b :ls<CR>:b
+nnoremap <Leader>d :bd<CR>
+
+" Inspired by https://www.hillelwayne.com/post/intermediate-vim/:
+nnoremap Q @@
+" Delete without clobbering the unnamed register
+nnoremap s "_d
