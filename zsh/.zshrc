@@ -96,5 +96,8 @@ antigen apply
 ZSH_HIGHLIGHT_STYLES[unknown-token]='none'
 bindkey '^N' autosuggest-accept
 
-export PATH="$HOME/.poetry/bin:$PATH"
-eval "$(pyenv init -)"
+# fzf:
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+bindkey -s '^p' 'vim $(fzf)\n'
