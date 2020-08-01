@@ -1,140 +1,123 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.dotfiles/vim/Vundle.vim
+" For netrw (technically a plugin, but comes preinstalled
+" with Vim):
+filetype indent plugin on
+syntax enable
 
-call vundle#begin()
+" fzf:
+set rtp+=~/.fzf
 
-Plugin 'itchyny/lightline.vim'
-Plugin 'danielwe/base16-vim'
-Plugin 'daviesjamie/vim-base16-lightline'
-Plugin 'scrooloose/nerdtree'
-Plugin 'mengelbrecht/lightline-bufferline'
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
-Plugin 'neovimhaskell/haskell-vim'
-Plugin 'lervag/vimtex'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'fatih/vim-go'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'digitaltoad/vim-pug'
-Plugin 'Aluriak/ASP.vim'
-Plugin 'jceb/vim-orgmode'
-Plugin 'tpope/vim-speeddating'
-
-call vundle#end()
-
+" Set up backspacing to mirror the usual backspace in IDEs:
 set backspace=indent,eol,start
 
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256  
-  source ~/.vimrc_background
-endif
-
-if !has("gui_running")
-    set t_Co=256
-    set term=screen-256color
-endif
+" Expand tabs into spaces, and auto-indent:
+set expandtab ts=4 sw=4 ai
 
 let maplocalleader=' '
 let mapleader=' '
 
-nmap <S-Enter> O<Esc>
-nmap <CR> o<Esc>
-
+" Show commands as they are being typed, and show current mode:
 set showcmd
 set showmode
+
+" Use relative file numbering:
 set relativenumber
+
+" Highlight searches incrementally:
 set hlsearch
 set incsearch
-set hidden
-set ignorecase
-set expandtab ts=4 sw=4 ai
 
+" If no capitals are in search query, treat the query as case 
+" insensitive. If capitals are present, treat the query as case
+" sensitive:
+set smartcase
+set ignorecase
+
+" Don't redraw in the middle of macro execution (makes things
+" faster):
+set lazyredraw
+
+" Allow edited buffers to be hidden rather than forcing
+" them to be saved or abandoned:
+set hidden
+
+" Start scrolling when cursor is 5 lines before the end of the file.
 set scrolloff=5
 
-set foldmethod=indent   
-set foldnestmax=10
-set nofoldenable
-set foldlevel=2
+" turn hybrid line numbers on
+set number relativenumber
+set nu rnu
 
-syntax on
-
-" Things to stop me being lazy:
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-
-
-" Lightline:
+" Display the statusbar at the bottom of the screen:
 set laststatus=2
-let g:lightline = {
-      \ 'colorscheme': 'base16',
-      \ }
-let g:lightline#bufferline#show_number  = 2
-set showtabline=2
+set ruler
 
-let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-let g:lightline.component_type   = {'buffers': 'tabsel'}
+" Don't offer completions from included files in autocomplete:
+set complete-=i
 
-" Goyo:
-function! s:goyo_enter()
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set status off
-  endif
-  "set noshowmode
-  set noshowcmd
-  set scrolloff=999
-endfunction
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
 
-function! s:goyo_leave()
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set status on
-  endif
-  "set showmode
-  set showcmd
-  set scrolloff=5
-endfunction
+" Display all matching files when we tab complete
+set wildmenu
 
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
+set autoindent
 
-autocmd FileType haskell setlocal expandtab ts=2 sw=2 ai
-let g:haskell_indent_before_where = 0
-let g:haskell_indent_where = 2
-let g:haskell_indent_let = 2
-let g:haskell_indent_if = 0
+set textwidth=120
+set colorcolumn=120
 
-let g:go_version_warning = 0
+" Tweaks for browsing with netrw
+let g:netrw_altv=1          " open splits to the right
+let g:netrw_liststyle=3     " tree view
+" let g:netrw_list_hide=netrw_gitignore#Hide()
+" let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
-let g:vimtex_quickfix_open_on_warning = 0
+" Remappings to assist buffer navigation:
+nnoremap <Right> :bn<CR>
+nnoremap <Left> :bp<CR>
+nnoremap <Up> :ls<CR>:b
+nnoremap <Leader>d :bd<CR>
 
-nmap <Leader>1 <Plug>lightline#bufferline#go(1)
-nmap <Leader>2 <Plug>lightline#bufferline#go(2)
-nmap <Leader>3 <Plug>lightline#bufferline#go(3)
-nmap <Leader>4 <Plug>lightline#bufferline#go(4)
-nmap <Leader>5 <Plug>lightline#bufferline#go(5)
-nmap <Leader>6 <Plug>lightline#bufferline#go(6)
-nmap <Leader>7 <Plug>lightline#bufferline#go(7)
-nmap <Leader>8 <Plug>lightline#bufferline#go(8)
-nmap <Leader>9 <Plug>lightline#bufferline#go(9)
-nmap <Leader>0 <Plug>lightline#bufferline#go(10)
-nnoremap <Leader>n :bnext<CR>
-nnoremap <Leader>p :bprevious<CR>
-nnoremap <Leader>d :bd
-" nnoremap <Leader>c :!setxkbmap -option caps:escape 
+" vim-go bindings
+nnoremap <Leader>gi :GoImports<CR>
+nnoremap <Leader>gb :GoBuild<CR>
+nnoremap <Leader>gt :GoTest<CR>
 
-" Nerdtree
-map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" fzf bindings
+nnoremap <C-p> :Files<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>r :Rg<CR>
+nnoremap <Leader>b :Buffers<CR>:b
 
-set timeoutlen=1000 ttimeoutlen=0
+" Inspired by https://www.hillelwayne.com/post/intermediate-vim/:
+nnoremap Q @@
+" Delete without clobbering the unnamed register
+nnoremap s "_d
 
-filetype plugin indent on
+augroup fts
+    autocmd!
+    autocmd FileType markdown set textwidth=80
+    autocmd FileType markdown set colorcolumn=80
+augroup END
+
+set termguicolors
+set background=dark
+colorscheme bat
+
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 1
+
+nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
