@@ -17,7 +17,7 @@ Longer:
 ```sh
 $ git clone --recurse-submodules https://github.com/jamespwilliams/dotfiles.git ~/.dotfiles
 $ cd ~/.dotfiles
-$ stow {bash,readline,tmux,vim}
+$ stow {zsh,readline,tmux,vim}
 
 # Example: uninstall vim configuration
 $ stow -D vim
