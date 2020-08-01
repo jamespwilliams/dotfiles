@@ -1,5 +1,8 @@
 # Adapted from https://gist.githubusercontent.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52
 
+export GOPRIVATE="gitlab.netcraft.com"
+export PATH=$PATH:~/go/bin
+
 source $HOME/.dotfiles/.include/antigen/antigen.zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
