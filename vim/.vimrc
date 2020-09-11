@@ -88,6 +88,7 @@ nnoremap <Leader>gt :GoTest<CR>
 " fzf bindings
 nnoremap <C-p> :Files<CR>
 nnoremap <Leader>f :Files<CR>
+nnoremap <C-g> :Rg<CR>
 nnoremap <Leader>r :Rg<CR>
 nnoremap <Leader>b :Buffers<CR>:b
 
