@@ -111,6 +111,8 @@ set termguicolors
 set background=dark
 colorscheme bat
 
+" vim-go
+let g:go_fmt_command = "gofumports"
 let g:go_highlight_extra_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_functions = 1
