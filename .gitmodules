@@ -4,3 +4,6 @@
 [submodule ".include/antigen"]
 	path = .include/antigen
 	url = https://github.com/zsh-users/antigen
+[submodule "vim/.vim/pack/plugins/start/bat.vim"]
+	path = vim/.vim/pack/plugins/start/bat.vim
+	url = https://github.com/jamespwilliams/bat.vim
