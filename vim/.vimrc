@@ -99,8 +99,8 @@ nnoremap s "_d
 
 augroup fts
     autocmd!
-    autocmd FileType markdown set textwidth=80
-    autocmd FileType markdown set colorcolumn=80
+    autocmd FileType markdown setlocal textwidth=80
+    autocmd FileType markdown setlocal colorcolumn=80
 augroup END
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
