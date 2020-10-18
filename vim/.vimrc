@@ -101,6 +101,19 @@ augroup fts
     autocmd!
     autocmd FileType markdown setlocal textwidth=80
     autocmd FileType markdown setlocal colorcolumn=80
+
+    autocmd FileType perl setlocal textwidth=80
+    autocmd FileType perl setlocal colorcolumn=80
+    " https://wiki.netcraft.com/index.php/Perl_Coding_Guidelines
+    autocmd FileType perl setlocal tabstop=4           " set hard tabstop size to 4
+    autocmd FileType perl setlocal softtabstop=4       " set soft tabstop size to 4
+    autocmd FileType perl setlocal shiftwidth=4        " set size of an 'indent' to 4
+    autocmd FileType perl setlocal shiftround          " when shifting, always use a multiple of shiftwidth
+    autocmd FileType perl setlocal autoindent          " automatically indent new lines
+    autocmd FileType perl setlocal expandtab           " use spaces instead of <tab>s
+    autocmd FileType perl setlocal smarttab            " make adding/removing tabs (spaces) smarter
+
+    autocmd FileType perl autocmd BufWritePre <buffer> PerlTidy
 augroup END
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -130,6 +143,7 @@ let g:prettier#config#config_precedence = 'prefer-file'
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 let g:prettier#quickfix_auto_focus = 0
+
 
 nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
