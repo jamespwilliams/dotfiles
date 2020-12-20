@@ -101,6 +101,8 @@ augroup fts
     autocmd!
     autocmd FileType markdown setlocal textwidth=80
     autocmd FileType markdown setlocal colorcolumn=80
+    autocmd FileType text set textwidth=80
+    autocmd FileType text set colorcolumn=80
 
     autocmd FileType perl setlocal textwidth=80
     autocmd FileType perl setlocal colorcolumn=80
@@ -114,6 +116,16 @@ augroup fts
     autocmd FileType perl setlocal smarttab            " make adding/removing tabs (spaces) smarter
 
     autocmd FileType perl autocmd BufWritePre <buffer> PerlTidy
+augroup END
+
+augroup go2_ft
+  au!
+  autocmd BufNewFile,BufRead *.go2 set filetype=go
+augroup END
+
+augroup fmt
+    autocmd!
+    autocmd BufWritePre *.ml Neoformat
 augroup END
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
