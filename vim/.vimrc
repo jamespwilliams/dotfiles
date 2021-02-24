@@ -156,6 +156,8 @@ let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 let g:prettier#quickfix_auto_focus = 0
 
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 
 nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
