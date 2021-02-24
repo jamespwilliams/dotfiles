@@ -2,6 +2,7 @@
 
 export GOPRIVATE="gitlab.netcraft.com"
 export PATH=$PATH:~/go/bin
+export PATH=$PATH:~/.local/bin
 
 source $HOME/.dotfiles/.include/antigen/antigen.zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
