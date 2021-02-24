@@ -5,6 +5,8 @@ set nocompatible
 filetype indent plugin on
 syntax enable
 
+packloadall
+
 " fzf:
 set rtp+=~/.fzf
 
