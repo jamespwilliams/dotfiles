@@ -14,10 +14,10 @@ PS1_INSERT="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg
 PS1_NORMAL="%B%{$fg[cyan]%}[%n@%M %~]%{$reset_color%}$%b "
 PS1="$PS1_INSERT"
 
-# History in cache directory:
+HISTFILE=~/.history
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
+setopt SHARE_HISTORY
 
 # Basic auto/tab complete:
 autoload -U compinit
