@@ -105,3 +105,5 @@ bindkey '^N' autosuggest-accept
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 bindkey -s '^p' 'vim $(fzf)\n'
+
+alias n=nvim
