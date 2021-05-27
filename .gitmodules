@@ -7,3 +7,21 @@
 [submodule "vim/.vim/pack/plugins/start/bat.vim"]
 	path = vim/.vim/pack/plugins/start/bat.vim
 	url = https://github.com/jamespwilliams/bat.vim
+[submodule "nvim/.config/nvim/site/pack/plugins/start/bat.vim"]
+	path = nvim/.local/share/nvim/site/pack/plugins/start/bat.vim
+	url = https://github.com/jamespwilliams/bat.vim.git
+[submodule "nvim/.config/nvim/site/pack/plugins/start/fzf.vim"]
+	path = nvim/.local/share/nvim/site/pack/plugins/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule "nvim/.config/nvim/site/pack/plugins/start/nginx.vim"]
+	path = nvim/.local/share/nvim/site/pack/plugins/start/nginx.vim
+	url = https://github.com/chr4/nginx.vim.git
+[submodule "nvim/.config/nvim/site/pack/plugins/start/nvim-treesitter"]
+	path = nvim/.local/share/nvim/site/pack/plugins/start/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+[submodule "nvim/.config/nvim/site/pack/plugins/start/vim-puppet"]
+	path = nvim/.local/share/nvim/site/pack/plugins/start/vim-puppet
+	url = https://github.com/rodjek/vim-puppet
+[submodule "nvim/.config/nvim/site/pack/plugins/start/vim-slime"]
+	path = nvim/.local/share/nvim/site/pack/plugins/start/vim-slime
+	url = https://github.com/jpalardy/vim-slime.git
