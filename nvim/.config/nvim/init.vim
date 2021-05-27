@@ -132,4 +132,7 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+runtime lsp.vim
+runtime go.vim
+
 packloadall

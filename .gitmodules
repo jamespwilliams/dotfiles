@@ -25,3 +25,6 @@
 [submodule "nvim/.config/nvim/site/pack/plugins/start/vim-slime"]
 	path = nvim/.local/share/nvim/site/pack/plugins/start/vim-slime
 	url = https://github.com/jpalardy/vim-slime.git
+[submodule "nvim/.local/share/nvim/site/pack/plugins/start/nvim-lspconfig"]
+	path = nvim/.local/share/nvim/site/pack/plugins/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
