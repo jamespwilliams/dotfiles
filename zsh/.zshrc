@@ -67,7 +67,16 @@ lfcd () {
 bindkey -s '^o' 'lfcd\n'
 
 genpass () {
+    # Shortcut for generating a random base64 password of the given length (default 16 characters):
     base64 /dev/urandom | tr -dc A-Za-z0-9 | head -c${1:-16} && echo
+}
+
+nsc () {
+    # Shortcut for executing a command in a nix-shell environment with a package loaded.  By default, the command is the
+    # package name.
+    #
+    # For example, if you want to launch remmina, a GUI RDP client: `nsc remmina`
+    nix-shell -p $1 --command ${1:-$2}
 }
 
 # Edit line in vim with ctrl-e:
