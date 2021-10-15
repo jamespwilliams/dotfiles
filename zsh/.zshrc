@@ -66,6 +66,10 @@ lfcd () {
 }
 bindkey -s '^o' 'lfcd\n'
 
+genpass () {
+    base64 /dev/urandom | tr -dc A-Za-z0-9 | head -c${1:-16} && echo
+}
+
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
