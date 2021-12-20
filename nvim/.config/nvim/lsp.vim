@@ -47,4 +47,11 @@ nvim_lsp.gopls.setup {
   },
 }
 
+nvim_lsp.ocamllsp.setup {
+  on_attach = on_attach,
+}
 EOF
+
+autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync()
+autocmd BufWritePre *.ml lua vim.lsp.buf.formatting_sync()
+autocmd BufWritePre *.mli lua vim.lsp.buf.formatting_sync()
