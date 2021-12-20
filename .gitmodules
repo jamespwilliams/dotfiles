@@ -28,3 +28,6 @@
 [submodule "nvim/.local/share/nvim/site/pack/plugins/start/nvim-lspconfig"]
 	path = nvim/.local/share/nvim/site/pack/plugins/start/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "nvim/.local/share/nvim/site/pack/plugins/start/vim-nix"]
+	path = nvim/.local/share/nvim/site/pack/plugins/start/vim-nix
+	url = https://github.com/LnL7/vim-nix.git
