@@ -50,8 +50,17 @@ nvim_lsp.gopls.setup {
 nvim_lsp.ocamllsp.setup {
   on_attach = on_attach,
 }
+
+nvim_lsp.rescriptls.setup {
+  cmd = {
+    'node',
+    '/home/jpw/.local/share/nvim/site/pack/plugins/start/vim-rescript/server/out/server.js',
+    '--stdio'
+  }
+}
 EOF
 
 autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync()
 autocmd BufWritePre *.ml lua vim.lsp.buf.formatting_sync()
 autocmd BufWritePre *.mli lua vim.lsp.buf.formatting_sync()
+autocmd BufWritePre *.res lua vim.lsp.buf.formatting_sync()
