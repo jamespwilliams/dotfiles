@@ -93,6 +93,10 @@ nnoremap Q @@
 " Delete without clobbering the unnamed register
 nnoremap s "_d
 
+" navigate the changelist more conveniently:
+nnoremap <C-J> g,
+nnoremap <C-K> g;
+
 augroup fts
     autocmd!
     autocmd FileType markdown setlocal textwidth=80
