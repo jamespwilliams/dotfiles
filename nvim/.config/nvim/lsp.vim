@@ -51,6 +51,10 @@ nvim_lsp.ocamllsp.setup {
   on_attach = on_attach,
 }
 
+nvim_lsp.terraformls.setup {
+  on_attach = on_attach,
+}
+
 nvim_lsp.rescriptls.setup {
   cmd = {
     'node',
