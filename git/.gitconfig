@@ -1,0 +1,18 @@
+[rebase]
+    autosquash = true
+[alias]
+    pmc = push -o merge_request.create
+    f   = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+    fb  = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup && git -c sequence.editor=: rebase -i "
+    fm  = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup && git -c sequence.editor=: rebase -i origin/master"
+[push]
+    autoSetupRemote = true
+[tag]
+    gpgsign = true
+
+# [user]
+#     signingkey = key::placeholder
+# [gpg]
+#       format = ssh
+# [commit]
+#     gpgsign = true
